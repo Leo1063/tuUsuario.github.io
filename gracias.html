@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>¡Gracias por tu consulta!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="gracias-msg" style="text-align:center; padding: 120px 28px 80px;">
+    <h2 style="font-size:2.1em; color:#01bfc1; font-family:'Playfair Display',serif;">¡Gracias por tu mensaje!</h2>
+    <p style="font-size:1.12em; color:#222c;">
+      Nos pondremos en contacto contigo muy pronto.<br>
+      Revisá tu correo y WhatsApp para la confirmación.<br><br>
+      <a href="index.html" class="btn" style="background:#011425; padding:14px 28px; color:#fff; border-radius:6px;">Volver al inicio</a>
+    </p>
+  </section>
+  <script>
+  // Efecto de aparición al cargar la página
+  document.body.classList.add('fade-in');
+
+  // Captura todos los enlaces internos y aplica el fade-out antes de ir a otra página
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const destino = link.getAttribute('href');
+      if (destino && !destino.startsWith('#') && !link.target) {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => { window.location.href = destino; }, 300);
+      }
+    });
+  });
+</script>
+<script src="js/language.js"></script>
+
+</body>
+</html>
